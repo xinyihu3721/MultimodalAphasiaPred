@@ -8,7 +8,7 @@ SHAP values for each predictor were calculated for SVR and RF model families sep
 $$\phi_i(F, v) = \frac{1}{|F|!} \sum_{S \subseteq F \setminus \{i\}} |S|! (|F| - |S| - 1)! \big[\nu(S) - \nu(S \cup \{i\}) \big],$$
 
 $$
-= \frac{1}{|F|} \sum_{L = 0}^{|F|-1} \frac{1}{\binom{|F|-1}{L}} \sum_{\substack{S \subseteq F \setminus \{i\} \\ |S| = L}}  \big[\nu(S) - \nu(S \cup \{i\}) \big],
+= \frac{1}{|F|} \sum_{L = 0}^{|F|-1} \frac{1}{\binom{|F|-1}{L}} \sum_{S \subseteq F \setminus \{i\} \text{ and} |S| = L}  \big[\nu(S) - \nu(S \cup \{i\}) \big],
 $$
 
 where $\phi_i$ is the SHAP function, $F$ is the set of all predictors (7 in total), $S$ is any subset of $F$ that does not include predictor $i$, $\nu(S)$ is the so-called characteristic function given by the average RMSE score for the model using the subset of predictors $S$, and $\big[\nu(S) - \nu(S \cup \{i\}) \big]$ is the **marginal contribution** of predictor $i$ to the subset $S$. 
